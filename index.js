@@ -3,7 +3,9 @@ const https = require('https');
 const fs = require('fs');
 const url = require('url');
 const StringDecoder = require('string_decoder').StringDecoder;
-const { httpPort, httpsPort , envName} = require('./config');
+const helpers = require('./lib/helpers');
+const { httpPort, httpsPort , envName} = require('./lib/config');
+const handlers = require('./lib/handlers');
 
 const httpServer = http.createServer(function(req, res){
     unifiedServer(req,res)
@@ -47,7 +49,7 @@ function unifiedServer(req, res) {
             queryStringObject,
             trimmedPath,
             headers,
-            payload: bufferString
+            payload: helpers.parseToJSONObject(bufferString)
         }
         choosenHandler(data, function(statusCode, payload) {
             statusCode = typeof statusCode === 'number' ? statusCode : 200;
@@ -62,17 +64,8 @@ function unifiedServer(req, res) {
         
     });
 }
-
-const handlers = {
-    sample: function(data, callback){
-        callback(200, {Sample: 'This is sample page'})
-    }
-}
-handlers.notFound = function(data, callback){
-    callback(404, {Error: 'Page not found'})
-}
-
 const router = {
-    'sample': handlers.sample,
+    ping: handlers.ping,
+    users: handlers.users
 }
 
