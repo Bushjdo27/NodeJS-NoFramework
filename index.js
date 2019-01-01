@@ -5,7 +5,7 @@ const url = require('url');
 const StringDecoder = require('string_decoder').StringDecoder;
 const helpers = require('./lib/helpers');
 const { httpPort, httpsPort , envName} = require('./lib/config');
-const handlers = require('./lib/handlers');
+const handlers = require('./lib/handlers/handlers');
 
 const httpServer = http.createServer(function(req, res){
     unifiedServer(req,res)
@@ -66,6 +66,7 @@ function unifiedServer(req, res) {
 }
 const router = {
     ping: handlers.ping,
-    users: handlers.users
+    users: handlers.users,
+    tokens: handlers.tokens
 }
 
