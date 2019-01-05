@@ -7,29 +7,43 @@
     <base href="{global.baseUrl}"/>
     <title>{head.title} | {global.appName}</title>
     <meta name="description" content="{head.description}">
-    <link rel="icon" href="public/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <script type="text/javascript" charset="utf-8" src="public/app.js"></script>
     <link rel="stylesheet" href="public/style.css" type="text/css">
 </head>
 <body class="{body.class}">
-    <!-- Page Wrapper -->
-    <div class="wrapper">
-        <header class="header">
-            <div class="header__logo">
-                
-            </div>
-            
-            <div class="header__navigation">
-                <ul class="navigation">
-                    <li class="navigation__item"><a href="/" class="navigation__link">Home</a></li>
-                    <li class="navigation__item"><a href="/account/create" class="navigation__link logedOut">Sign Up</a></li>
-                    <li class="navigation__item"><a href="/session/create" class="navigation__link logedOut">Log In</a></li>
-                    <li class="navigation__item"><a href="/checks/all" class="navigation__link loggedIn">Dashboard</a></li>
-                    <li class="navigation__item"><a href="/account/edit" class="navigation__link loggedIn">Account Settings</a></li>
-                    <li class="navigation__item"><a href="#" class="navigation__link loggedIn">Log Out</a></li>
-                </ul>
-            </div>
-        </header>
-        <div class="content">
-
-        
+        <!-- Page Wrapper -->
+        <div class="wrapper">
+          <!-- Header -->
+          <div class="header">
+            <!-- Logo -->
+            <a class="logo" href="/">
+              <img src="public/logo.png" alt="Logo" />
+            </a>
+            <!-- Navigation -->
+            <ul class="menu">
+              <li>
+                <a href="/">Home</a>
+              </li>
+              <li class="loggedOut">
+                <a href="/account/create">Signup</a>
+              </li>
+              <li class="loggedOut">
+                <a href="/session/create">Login</a>
+              </li>
+              <li class="loggedIn">
+                <a href="/checks/all">Dashboard</a>
+              </li>
+              <li class="loggedIn">
+                <a href="/account/edit">Account Settings</a>
+              </li>
+              <li class="loggedIn">
+                <a href="#">Logout</a>
+              </li>
+            </ul>
+    
+            <div class="clear"></div>
+          </div>
+    
+          <!-- Page-Specific Content -->
+          <div class="content">
